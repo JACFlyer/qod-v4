@@ -78,6 +78,23 @@ public class Quote implements FlatQuote {
   @JsonSerialize(as = FlatSource.class)
   private Source source;
 
+
+   /** @ManyToOne(fetch = FetchType.EAGER,
+      cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  @JoinColumn(name = "contributer_id")
+
+**/
+
+
+  public static EntityLinks getEntityLinks() {
+    return entityLinks;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
   @Override
   public UUID getId() {
     return id;
